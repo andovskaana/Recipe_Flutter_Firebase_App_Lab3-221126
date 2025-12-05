@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "85409185174",
+    "project_id": "recipe-flutter-lab3",
+    "storage_bucket": "recipe-flutter-lab3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85409185174:android:96743dc45536619be431b7",
+        "android_client_info": {
+          "package_name": "com.example.mis_lab2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH25bTlJtW_LlUBjqDsSjtCMbIcPf65hA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

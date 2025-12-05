@@ -9,10 +9,10 @@ class MealDetailScreen extends StatefulWidget {
   final Meal? meal;
 
   const MealDetailScreen({
-    Key? key,
+    super.key,
     required this.mealId,
     this.meal,
-  }) : super(key: key);
+  });
 
   @override
   State<MealDetailScreen> createState() => _MealDetailScreenState();
@@ -51,7 +51,9 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
   }
   Future<void> _openYoutube() async {
     if (_meal?.youtube == null ||
-        _meal!.youtube!.trim().isEmpty) return;
+        _meal!.youtube!.trim().isEmpty) {
+      return;
+    }
 
     final uri = Uri.parse(_meal!.youtube!);
     if (await canLaunchUrl(uri)) {
@@ -134,7 +136,7 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                   ],
                 ),
               );
-            }).toList(),
+            }),
             const SizedBox(height: 16),
             const Text(
               'Инструкции:',

@@ -6,10 +6,10 @@ class MealGridItem extends StatelessWidget {
   final VoidCallback onTap;
 
   const MealGridItem({
-    Key? key,
+    super.key,
     required this.meal,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
