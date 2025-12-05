@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import '../models/category.dart';
 import '../services/api_service.dart';
 import '../widgets/category_card.dart';
@@ -70,9 +72,19 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Грешка при превземање рандом рецепт')),
+        const SnackBar(content: Text('Грешка при превземање рандом рецепт')),
       );
     }
+  }
+
+  Future<void> _logout() async {
+    await FirebaseAuth.instance.signOut();
+    if (!mounted) return;
+    Navigator.pushReplacementNamed(context, '/login');
+  }
+
+  void _openProfile() {
+    Navigator.pushNamed(context, '/profile');
   }
 
   @override
@@ -81,6 +93,21 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       appBar: AppBar(
         title: const Text('Категории'),
         actions: [
+          // PROFILE
+          IconButton(
+            icon: const Icon(Icons.person),
+            tooltip: 'Profile',
+            onPressed: _openProfile,
+          ),
+
+          // LOGOUT
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Logout',
+            onPressed: _logout,
+          ),
+
+          // RANDOM meal
           IconButton(
             icon: const Icon(Icons.shuffle),
             tooltip: 'Random рецепт',
