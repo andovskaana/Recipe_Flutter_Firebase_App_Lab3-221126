@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../models/category.dart';
 import '../services/api_service.dart';
+import '../services/favorites_service.dart';
 import '../widgets/category_card.dart';
 import 'meals_by_category_screen.dart';
 import 'meal_detail_screen.dart';
@@ -26,6 +27,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   void initState() {
     super.initState();
+    FavoritesService.loadFavoritesForCurrentUser();
     _load();
     _searchController.addListener(_applyFilter);
   }
@@ -93,6 +95,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       appBar: AppBar(
         title: const Text('Категории'),
         actions: [
+          //FAVORITES
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            tooltip: 'Омилени рецепти',
+            onPressed: () {
+              Navigator.pushNamed(context, '/favorites');
+            },
+          ),
           // PROFILE
           IconButton(
             icon: const Icon(Icons.person),

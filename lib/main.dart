@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mis_lab2/firebase_options.dart';
+import 'package:mis_lab2/screens/favorites_screen.dart';
 import 'package:mis_lab2/screens/login_screen.dart';
 import 'package:mis_lab2/screens/profile_screen.dart';
 import 'package:mis_lab2/screens/register_screen.dart';
@@ -30,7 +31,7 @@ class RecipesApp extends StatelessWidget {
         '/register': (_) => const RegisterScreen(),
         '/home': (_) => const CategoriesScreen(),
         '/profile': (_) => const ProfileScreen(),
-
+        '/favorites': (_) => const FavoritesScreen()
       },
     );
   }
