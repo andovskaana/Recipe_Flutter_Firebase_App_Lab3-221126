@@ -22,7 +22,7 @@ Future<void> main() async {
   NotificationService().init();
 
 ///For checking that notifications work function to send instant message (no scheduling)
-  //NotificationService().showInstantTestNotification();
+  NotificationService().showInstantTestNotification();
 ///For testing also but this tim,e with scheduling every 10 seconds
   //NotificationService().startDevSpamNotifications(seconds: 10);
 
